@@ -8,5 +8,4 @@ Copy the modules folder to your Axis bot.
 
 Supported versions:
 
-* Axis 1.4.0
 * Axis 1.4.1
