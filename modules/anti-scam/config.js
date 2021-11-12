@@ -3,11 +3,17 @@ const MakeConfig = require('../../scripts/makeConfig');
 
 const scamDomains = require('./discordScamDomains.json');
 const config = {
-    banOffenders: true,
+    banOffenders: {
+        enabled: true,
+        reason: 'Discord scam'
+    },
     reply: {
         enabled: true,
-        message: 'You have been banned for using a scam links.'
-    }
+        title: 'Scam detected!',
+        description: '%username%, Scam link deleted.',
+        footer: 'Antiscam module by Ghex#7338',
+        addTimestamp: false
+    },
     blacklistedDomains: scamDomains
 }
 
