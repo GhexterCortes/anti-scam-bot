@@ -1,13 +1,11 @@
-# Anti-scam-bot
+# Anti-scam-bot (Fork for Axis)
 
-## Requirements:
-1. Nodejs>=16
-2. Git
-3. A Discord bot token
-## Installing:
-```
-git clone https://github.com/HELLSNAKES/anti-scam-bot.git
-cd anti-scam-bot
-npm i
-```
-Change the bot token in `config.json` and then `npm start`.
+## Installation
+
+Copy the modules folder to your Axis bot.
+
+## Supported versions
+
+Supported versions:
+
+* Axis 1.4.1
