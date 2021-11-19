@@ -14,6 +14,8 @@ class Create {
 
     async start(Client) {
         Client.on('messageCreate', async (message) => {
+            if(!config.punishment.ignoreBots && (message.author.bot || message.author.system)) return;
+
             const detection = {
                 autoDetect: autoDetect(message, config),
                 domainDetect: domainDetect(message, config)
