@@ -5,7 +5,7 @@ module.exports = (message, config) => {
     if(!autoDetect.enabled || !message.content) return false;
 
     // Identify Eligible Channels
-    if(!checkChannelList(message.channel, autoDetect.channels)) return false;
+    if(!checkChannelList(message.channelId, autoDetect.channels)) return false;
 
     // Check message
     if(autoDetect.mustContainLink && containsLink() || checkLength(message.content, autoDetect.messageLengthLimit)) return false;
@@ -20,8 +20,8 @@ function checkChannelList(currentChannel, config) {
     const channelList = config.blacklist;
     const convertToWhitelist = config.convertToWhitelist;
     
-    if(!convertToWhitelist && channelList.includes(currentChannel.id)) return false;
-    if(convertToWhitelist && !channelList.includes(currentChannel.id)) return false;
+    if(!convertToWhitelist && channelList.includes(currentChannel)) return false;
+    if(convertToWhitelist && !channelList.includes(currentChannel)) return false;
 
     return true;
 }
