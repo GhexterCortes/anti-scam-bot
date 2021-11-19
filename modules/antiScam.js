@@ -14,7 +14,7 @@ class Create {
 
     async start(Client) {
         Client.on('messageCreate', async (message) => {
-            if(!config.punishment.ignoreBots && (message.author.bot || message.author.system)) return;
+            if(!config.punishment.ignoreBots && (message.author.bot || message.author.system) || message.author.id == Client.user.id) return;
 
             const detection = {
                 autoDetect: autoDetect(message, config),

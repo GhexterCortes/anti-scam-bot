@@ -8,7 +8,7 @@ module.exports = (message, config) => {
     if(!checkChannelList(message.channelId, autoDetect.channels)) return false;
 
     // Check message
-    if(autoDetect.mustContainLink && containsLink() || checkLength(message.content, autoDetect.messageLengthLimit)) return false;
+    if(autoDetect.mustContainLink && !containsLink(message.content) || !checkLength(message.content, autoDetect.messageLengthLimit)) return false;
 
     // Check words
     if(!checkWords(message.content, autoDetect.scamWords)) return false;
@@ -20,8 +20,8 @@ function checkChannelList(currentChannel, config) {
     const channelList = config.blacklist;
     const convertToWhitelist = config.convertToWhitelist;
     
-    if(!convertToWhitelist && channelList.includes(currentChannel)) return false;
-    if(convertToWhitelist && !channelList.includes(currentChannel)) return false;
+    if(!convertToWhitelist && typeof channelList.find(channel => channel.toString() === currentChannel) !== 'undefined') return false;
+    if(convertToWhitelist && typeof channelList.find(channel => channel.toString() === currentChannel) === 'undefined') return false;
 
     return true;
 }
@@ -38,7 +38,7 @@ function containsLink(content) {
 }
 
 function checkWords(content, words) {
-    let list = content.toLowerCase.split(' ');
+    let list = content.toLowerCase().split(' ');
     words = words.map(word => word.toLowerCase());
 
     if(!list.length) return false;
