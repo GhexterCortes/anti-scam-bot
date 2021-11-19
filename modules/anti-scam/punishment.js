@@ -34,7 +34,7 @@ async function sendReply(config, channel, member) {
 
     const embed = new MessageEmbed()
         .setAuthor(getRandomKey(config.title))
-        .setDescription(getRandomKey(config.description))
+        .setDescription(getRandomKey(description))
         .setFooter(getRandomKey(config.footer))
         .setColor(config.embedColor);
 
