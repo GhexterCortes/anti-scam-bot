@@ -1,5 +1,5 @@
 const SafeMessage = require('../../scripts/safeMessage');
-const { replaceAll } = require('../../scripts/replaceAll');
+const { replaceAll } = require('fallout-utility');
 const { MessageEmbed } = require('discord.js');
 const { getRandomKey } = require('fallout-utility');
 
