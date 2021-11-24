@@ -105,8 +105,8 @@ dist
 
 # Development config
 *.dev.yml
-config
-scripts
+/config
+/scripts
 /index.js
 package.json
 package-lock.json
