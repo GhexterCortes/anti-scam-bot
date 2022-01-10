@@ -1,18 +1,14 @@
 const config = require('./anti-scam/config.js');
-const { getRandomKey, replaceAll } = require('fallout-utility');
-const SafeMessage = require('../scripts/safeMessage');
-const { MessageEmbed } = require('discord.js');
-
 const autoDetect = require('./anti-scam/autoDetect');
 const domainDetect = require('./anti-scam/domainDetect');
 const punishment = require('./anti-scam/punishment');
 
-class Create {
+class AntiScam {
     constructor() {
-        this.versions = ['1.4.1', '1.4.2', '1.4.3'];
+        this.versions = ['1.6.0', '1.6.1'];
     }
 
-    async start(Client) {
+    async onStart(Client) {
         Client.on('messageCreate', async (message) => {
             if(!config.punishment.ignoreBots && (message.author.bot || message.author.system) || message.author.id == Client.user.id) return;
 
@@ -30,4 +26,4 @@ class Create {
     }
 }
 
-module.exports = new Create();
+module.exports = new AntiScam();

@@ -43,4 +43,4 @@ const config = {
     }
 }
 
-module.exports = Yml.parse(MakeConfig('./config/anti-scam.yml', config)); 
+module.exports = Yml.parse(MakeConfig('./config/anti-scam/config.yml', config)); 
